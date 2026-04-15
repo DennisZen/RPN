@@ -308,23 +308,27 @@ function ejecutarAccion(valor) {
     actualizar();
 }
 
+
 // Función para operaciones de dos números (X e Y)
 function op(comando) {
-    if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
+    if (editando) { 
+        stack[0] = parseFloat(stack[0]) || 0; 
+        editando = false; 
+    }
+    
     if (stack.length >= 2) {
+        const x = stack[0];
+        const y = stack[1];
+        const resultado = comando(y, x);
 
-        const x = stack[0]; // El valor de abajo (divisor en /)
-        const y = stack[1]; // El valor de arriba (dividendo en /)
-
-        // VALIDACIÓN: Si es división y el divisor es 0, ignoramos
-        if (valor === 'div' && x === 0) {
-            console.warn("División por cero ignorada");
-            return; // Salimos de la función sin tocar el stack
+        // Solo si el resultado es un número válido y no es Infinity o NaN
+        if (Number.isFinite(resultado)) {
+            stack.shift();
+            stack.shift();
+            stack.unshift(resultado);
+        } else {
+            console.warn("Operación no válida ignorada");
         }
-        
-        const x = stack.shift();
-        const y = stack.shift();
-        stack.unshift(comando(y, x));
     }
 }
 
