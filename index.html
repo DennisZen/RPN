@@ -135,8 +135,8 @@ function actualizar() {
 
 (function() {
     const buttons = document.querySelectorAll('.btn-rect');
-    const pressedColor = '#e0e0e0';
-    const effectDuration = 150;
+    //const pressedColor = '#e0e0e0';
+    //const effectDuration = 150;
 
     // Transición suave
     buttons.forEach(btn => btn.style.transition = 'fill 0.1s ease');
@@ -300,9 +300,27 @@ function ejecutarAccion(valor) {
         case 'root': op((y, x) => Math.pow(y, 1 / x)); break;
 
         // Operaciones Unarias (de un solo número)
-        case 'ln':  if(stack.length > 0) { f_unaria(Math.log); } break;
-        case 'log': if(stack.length > 0) { f_unaria(Math.log10); } break;
-        case 'fac': if(stack.length > 0) { f_unaria(factorial); } break;
+        case 'ln':  
+            if(stack.length > 0) { 
+                const n = parseFloat(stack[0]);
+                if (n > 0) f_unaria(Math.log);
+            } 
+            break;
+        
+        case 'log': 
+            if(stack.length > 0) { 
+                const n = parseFloat(stack[0]);
+                if (n > 0) f_unaria(Math.log10);
+            } 
+            break;
+        case 'fac': 
+            if(stack.length > 0) { 
+                const n = parseFloat(stack[0]);
+                if (n >= 0 && n <= 170) {
+                    f_unaria(factorial); 
+                }
+            } 
+            break;
         case 'sign': if(stack.length > 0) { stack[0] = (parseFloat(stack[0]) * -1); } break;
     }
     actualizar();
@@ -326,9 +344,7 @@ function op(comando) {
             stack.shift();
             stack.shift();
             stack.unshift(resultado);
-        } else {
-            console.warn("Operación no válida ignorada");
-        }
+        } 
     }
 }
 
