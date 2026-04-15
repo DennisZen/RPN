@@ -1,0 +1,378 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="manifest" href="manifest.json">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+    background: #121212; /* Fondo para PC */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+svg {
+    /* POR DEFECTO (Móvil): Usa todo el espacio */
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: block;
+}
+
+/* SOLO PARA ESCRITORIO (Pantallas donde el ancho es mayor al alto) */
+@media (min-aspect-ratio: 1/1) {
+    svg {
+        /* En PC limitamos el ancho para que parezca un móvil largo */
+        width: auto;
+        aspect-ratio: 9 / 19.5; /* Ratio promedio de móviles modernos */
+        height: 95vh; /* Un poco de margen arriba/abajo en PC */
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 10px 50px rgba(0,0,0,0.5);
+        border-radius: 10px; /* Esquinas redondeadas solo en PC */
+    }
+}
+
+
+
+</style>
+</head>
+<body style="background:black">
+<svg width="100%" height="100%" viewBox="0 0 100 200" preserveAspectRatio="none"  style="background:black" xmlns="http://www.w3.org/2000/svg">
+<rect x="0" y="0%" width="100%" height="35%" rx='1' ry='1' style="stroke:none;fill:#494949" />       <text  class="stack-line"  x="98%" y="3.5%" text-anchor="end" dominant-baseline="central"  font-family="arial" font-size="10" style="fill:white"></text>           <text  class="stack-line"  x="98%" y="10.5%" text-anchor="end" dominant-baseline="central"  font-family="arial" font-size="10" style="fill:white"></text>           <text  class="stack-line"  x="98%" y="17.5%" text-anchor="end" dominant-baseline="central"  font-family="arial" font-size="10" style="fill:white"></text>           <text  class="stack-line"  x="98%" y="24.5%" text-anchor="end" dominant-baseline="central"  font-family="arial" font-size="10" style="fill:white"></text>           <text  class="stack-line"  x="98%" y="31.5%" text-anchor="end" dominant-baseline="central"  font-family="arial" font-size="10" style="fill:white"></text>           <rect  class="btn-rect" data-valor="rup" x='0.4%' y='35.4%' width='16.200000000000003%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#262626' />
+       <text x="8.3%" y="38.75%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">rup</text>           <rect  class="btn-rect" data-valor="swp" x='17.0%' y='35.4%' width='16.299999999999997%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#262626' />
+       <text x="24.95%" y="38.75%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">swp</text>           <rect  class="btn-rect" data-valor="und" x='33.699999999999996%' y='35.4%' width='16.300000000000004%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#262626' />
+       <text x="41.65%" y="38.75%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">und</text>           <rect  class="btn-rect" data-valor="edt" x='50.4%' y='35.4%' width='16.199999999999996%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#262626' />
+       <text x="58.3%" y="38.75%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">edt</text>           <rect  class="btn-rect" data-valor="drp" x='67.0%' y='35.4%' width='16.300000000000004%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#262626' />
+       <text x="74.94999999999999%" y="38.75%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="7" style="fill:white;pointer-events: none;'">del</text>           <rect  class="btn-rect" data-valor="clr" x='83.7%' y='35.4%' width='16.300000000000004%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#262626' />
+       <text x="91.65%" y="38.75%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">clr</text>           <rect  class="btn-rect" data-valor="rdn" x='0.4%' y='42.9%' width='16.200000000000003%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#262626' />
+       <text x="8.3%" y="46.25%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">rdn</text>           <rect  class="btn-rect" data-valor="pow" x='17.0%' y='42.9%' width='16.299999999999997%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#363636' />
+       <text x="24.95%" y="46.25%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">x^y</text>           <rect  class="btn-rect" data-valor="root" x='33.699999999999996%' y='42.9%' width='16.300000000000004%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#363636' />
+       <text x="41.65%" y="46.25%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">x&radic;y</text>           <rect  class="btn-rect" data-valor="ln" x='50.4%' y='42.9%' width='16.199999999999996%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#363636' />
+       <text x="58.3%" y="46.25%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">ln</text>           <rect  class="btn-rect" data-valor="log" x='67.0%' y='42.9%' width='16.300000000000004%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#363636' />
+       <text x="74.94999999999999%" y="46.25%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">log</text>           <rect  class="btn-rect" data-valor="fac" x='83.7%' y='42.9%' width='16.300000000000004%' height='7.1%' rx='1' ry='1' style='stroke:none;fill:#363636' />
+       <text x="91.65%" y="46.25%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="6" style="fill:white;pointer-events: none;'">!</text>           <rect  class="btn-rect" data-valor="n7" x='0.4%' y='50.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="12.5%" y="55.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">7</text>           <rect  class="btn-rect" data-valor="n8" x='25.4%' y='50.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="37.5%" y="55.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">8</text>           <rect  class="btn-rect" data-valor="n9" x='50.4%' y='50.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="62.5%" y="55.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">9</text>           <rect  class="btn-rect" data-valor="div" x='75.4%' y='50.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#fca311' />
+       <text x="87.5%" y="55.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="11" style="fill:white;pointer-events: none;'">/</text>           <rect  class="btn-rect" data-valor="n4" x='0.4%' y='60.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="12.5%" y="65.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">4</text>           <rect  class="btn-rect" data-valor="n5" x='25.4%' y='60.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="37.5%" y="65.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">5</text>           <rect  class="btn-rect" data-valor="n6" x='50.4%' y='60.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="62.5%" y="65.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">6</text>           <rect  class="btn-rect" data-valor="mult" x='75.4%' y='60.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#fca311' />
+       <text x="87.5%" y="65.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="11" style="fill:white;pointer-events: none;'">x</text>           <rect  class="btn-rect" data-valor="n1" x='0.4%' y='70.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="12.5%" y="75.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">1</text>           <rect  class="btn-rect" data-valor="n2" x='25.4%' y='70.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="37.5%" y="75.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">2</text>           <rect  class="btn-rect" data-valor="n3" x='50.4%' y='70.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="62.5%" y="75.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">3</text>           <rect  class="btn-rect" data-valor="rest" x='75.4%' y='70.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#fca311' />
+       <text x="87.5%" y="75.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="11" style="fill:white;pointer-events: none;'">-</text>           <rect  class="btn-rect" data-valor="n0" x='0.4%' y='80.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="12.5%" y="85.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">0</text>           <rect  class="btn-rect" data-valor="." x='25.4%' y='80.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="37.5%" y="85.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">.</text>           <rect  class="btn-rect" data-valor="sign" x='50.4%' y='80.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="62.5%" y="85.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">+/-</text>           <rect  class="btn-rect" data-valor="mas" x='75.4%' y='80.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#fca311' />
+       <text x="87.5%" y="85.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="11" style="fill:white;pointer-events: none;'">+</text>           <rect  class="btn-rect" data-valor="e" x='0.4%' y='90.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="12.5%" y="95.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">e</text>           <rect  class="btn-rect" data-valor="pi" x='25.4%' y='90.4%' width='24.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#494949' />
+       <text x="37.5%" y="95.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">pi</text>           <rect  class="btn-rect" data-valor="enter" x='50.4%' y='90.4%' width='49.6%' height='9.6%' rx='1' ry='1' style='stroke:none;fill:#ef6824' />
+       <text x="75.0%" y="95.0%" text-anchor="middle"  dominant-baseline="central"  font-family="Arial" font-size="9" style="fill:white;pointer-events: none;'">enter/dup</text>    </svg>
+<script>
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker registrado', reg))
+        .catch(err => console.warn('Error al registrar SW', err));
+    });
+  }
+
+// Al cargar el script, memorizamos el color de cada botón para siempre
+document.querySelectorAll('.btn-rect').forEach(btn => {
+    // Guardamos el color inicial en un atributo personalizado 'data-base-color'
+    btn.dataset.baseColor = window.getComputedStyle(btn).fill;
+});
+
+let stack = []; // Empezamos vacío como pediste
+let history = []; 
+let editando = false;
+
+function guardarHistorial() {
+    history.push(JSON.stringify(stack));
+    if (history.length > 20) history.shift();
+}
+
+function formatearNumero(num, esLineaEdicion) {
+    if (num === undefined || num === "") return "";
+    
+    // Si estamos editando y es la línea principal, mostramos el cursor
+    if (esLineaEdicion && editando) {
+        return "# " + num.toString();
+    }
+
+    let n = parseFloat(num);
+    if (isNaN(n)) return num;
+
+    let str = n.toString();
+    // Si el número es muy largo, lo recortamos para que quepa
+    if (str.length > 12) {
+        str = n.toPrecision(10);
+        str = parseFloat(str).toString(); 
+    }
+    return str;
+}
+
+function actualizar() {
+    const displayLines = Array.from(document.querySelectorAll('.stack-line'));
+    const reversedLines = displayLines.reverse();
+    
+    reversedLines.forEach((line, index) => {
+        const valor = stack[index];
+        // Pasamos 'true' solo si es el primer elemento (index 0)
+        line.textContent = formatearNumero(valor, index === 0);
+    });
+}
+
+(function() {
+    const buttons = document.querySelectorAll('.btn-rect');
+    const pressedColor = '#e0e0e0';
+    const effectDuration = 150;
+
+    // Transición suave
+    buttons.forEach(btn => btn.style.transition = 'fill 0.1s ease');
+
+function momentaryColorChange(el) {
+    // 1. Si hay un efecto en curso, lo matamos
+    if (el.dataset.timeoutId) {
+        clearTimeout(parseInt(el.dataset.timeoutId));
+    }
+
+    // 2. Cambio instantáneo al color de presión (sin transición)
+    el.style.transition = 'none';
+    el.style.fill = '#e0e0e0'; // El gris claro de presión
+
+    // 3. Programamos el regreso al color que memorizamos al inicio
+    const id = setTimeout(() => {
+        el.style.transition = 'fill 0.2s ease'; 
+        el.style.fill = el.dataset.baseColor; // Volver al color guardado
+        delete el.dataset.timeoutId;
+    }, 150);
+
+    el.dataset.timeoutId = id;
+}
+
+
+
+    buttons.forEach(button => {
+        // Usamos 'mousedown' para PC y 'touchstart' para móviles para respuesta inmediata
+        const handleEvent = (event) => {
+            // Evitamos que se dispare dos veces (algunos móviles lanzan ambos)
+            event.preventDefault();
+            
+            // RESPUESTA HÁPTICA
+            if (navigator.vibrate) {
+                navigator.vibrate(15); // Vibra 15 milisegundos
+            }
+            
+            momentaryColorChange(button);
+            const valor = button.getAttribute('data-valor');
+            
+            // Usamos el delay para que el alert no rompa el flujo
+            setTimeout(() => ejecutarAccion(valor), 50);
+        };
+
+        button.addEventListener('touchstart', handleEvent, {passive: false});
+        button.addEventListener('mousedown', handleEvent);
+    });
+
+function ejecutarAccion(valor) {
+    // --- 1. CONSTANTES (E y PI) ---
+
+    //--------------------------------------------------------------------------------
+        // --- 1. CONSTANTES (E y PI) ---
+    if (valor === 'pi' || valor === 'e') {
+        guardarHistorial();
+        const cte = (valor === 'pi') ? Math.PI : Math.E;
+        
+        if (editando) {
+            // Convertimos lo que se estaba editando a número real (limpia el "." si estaba solo)
+            let numeroFijado = parseFloat(stack[0]);
+            
+            // Si el número no es válido (ej. solo escribiste "."), lo descartamos
+            if (isNaN(numeroFijado)) {
+                stack[0] = cte;
+            } else {
+                stack[0] = numeroFijado; // Fijamos el anterior
+                stack.unshift(cte);      // Ponemos la constante encima
+            }
+        } else {
+            stack.unshift(cte);
+        }
+        
+        editando = false; // La constante no se sigue editando
+        actualizar();
+        return;
+    }
+
+    //--------------------------------------------------------------------------------
+
+    // --- 2. NÚMEROS Y PUNTO ---
+    if (valor.startsWith('n') || valor === '.') {
+        const digito = valor === '.' ? '.' : valor.replace('n', '');
+        if (!editando) {
+            stack.unshift(digito);
+            editando = true;
+        } else {
+            if (digito === '.' && stack[0].toString().includes('.')) return;
+            stack[0] = stack[0].toString() + digito;
+        }
+        actualizar();
+        return;
+    }
+
+    // --- 3. COMANDOS Y OPERACIONES ---
+    if (valor !== 'und') guardarHistorial();
+
+    switch (valor) {
+        case 'enter':
+            if (editando) {
+                stack[0] = parseFloat(stack[0]) || 0;
+                editando = false;
+            } else if (stack.length > 0) {
+                stack.unshift(stack[0]);
+            }
+            break;
+
+        case 'swp':
+            if (stack.length >= 2) {
+                if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
+                [stack[0], stack[1]] = [stack[1], stack[0]];
+            }
+            break;
+
+        case 'und':
+            if (history.length > 0) {
+                stack = JSON.parse(history.pop());
+                editando = false;
+            }
+            break;
+                case 'rdn': // Roll Down: El primero pasa a ser el último
+            if (stack.length > 1) {
+                if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
+                const primero = stack.shift();
+                stack.push(primero);
+            }
+            break;
+
+        case 'rup': // Roll Up: El último pasa a ser el primero
+            if (stack.length > 1) {
+                if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
+                const ultimo = stack.pop();
+                stack.unshift(ultimo);
+            }
+            break;
+
+
+        case 'drp':
+            if (editando) {
+                stack[0] = stack[0].toString().slice(0, -1);
+                if (stack[0] === "") { stack.shift(); editando = false; }
+            } else {
+                stack.shift();
+            }
+            break;
+        case 'edt': 
+            if (stack.length > 0) {
+                // Convertimos el valor actual en texto para poder añadirle dígitos
+                stack[0] = stack[0].toString();
+                editando = true; 
+            }
+            break;
+
+        case 'clr': stack = []; editando = false; break;
+        
+        // Operaciones Binarias
+        case 'mas':  op((y, x) => y + x); break;
+        case 'rest': op((y, x) => y - x); break;
+        case 'mult': op((y, x) => y * x); break;
+        case 'div':  op((y, x) => y / x); break;
+        case 'pow':  op((y, x) => Math.pow(y, x)); break;
+        case 'root': op((y, x) => Math.pow(y, 1 / x)); break;
+
+        // Operaciones Unarias (de un solo número)
+        case 'ln':  if(stack.length > 0) { f_unaria(Math.log); } break;
+        case 'log': if(stack.length > 0) { f_unaria(Math.log10); } break;
+        case 'fac': if(stack.length > 0) { f_unaria(factorial); } break;
+        case 'sign': if(stack.length > 0) { stack[0] = (parseFloat(stack[0]) * -1); } break;
+    }
+    actualizar();
+}
+
+// Función para operaciones de dos números (X e Y)
+function op(comando) {
+    if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
+    if (stack.length >= 2) {
+        const x = stack.shift();
+        const y = stack.shift();
+        stack.unshift(comando(y, x));
+    }
+}
+
+// Función para operaciones de un solo número (X)
+function f_unaria(func) {
+    if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
+    stack[0] = func(parseFloat(stack[0]));
+}
+
+function factorial(n) {
+    if (n < 0) return 0;
+    let res = 1;
+    for (let i = 2; i <= Math.floor(n); i++) res *= i;
+    return res;
+}
+
+
+// Mapeo de teclas físicas a los valores de 'data-valor'
+const mapTeclado = {
+    'Enter': 'enter',
+    ' ': 'enter',        // Espacio también suele usarse como Enter en RPN
+    'Backspace': 'drp',
+    'Delete': 'clr',
+    'Escape': 'clr',
+    '+': 'mas',
+    '-': 'rest',
+    '*': 'mult',
+    '/': 'div',
+    '.': '.',
+    ',': '.'           // Soporte para teclado numérico con coma
+};
+
+window.addEventListener('keydown', (event) => {
+    let accion = "";
+
+    // 1. Si es un número (0-9), lo mapeamos a 'n0', 'n1', etc.
+    if (event.key >= '0' && event.key <= '9') {
+        accion = 'n' + event.key;
+    } 
+    // 2. Si está en nuestro mapa de símbolos
+    else if (mapTeclado[event.key]) {
+        accion = mapTeclado[event.key];
+    }
+
+    // 3. Si encontramos una acción válida, la ejecutamos
+    if (accion) {
+        event.preventDefault(); // Evita que la página haga scroll o cosas raras
+        ejecutarAccion(accion);
+        
+        // OPCIONAL: Buscar el botón físico para disparar el efecto visual
+        const btn = document.querySelector(`[data-valor="${accion}"]`);
+        if (btn) momentaryColorChange(btn);
+    }
+});
+
+
+
+})();
+
+</script>
+</body></html>
