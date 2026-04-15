@@ -20,7 +20,7 @@ html, body {
     align-items: center;
 }
 svg {
-    /* POR DEFECTO (Móvil): Usa todo el espacio */
+    /* POR DEFECTO (MÃ³vil): Usa todo el espacio */
     width: 100%;
     height: 100%;
     background: black;
@@ -30,9 +30,9 @@ svg {
 /* SOLO PARA ESCRITORIO (Pantallas donde el ancho es mayor al alto) */
 @media (min-aspect-ratio: 1/1) {
     svg {
-        /* En PC limitamos el ancho para que parezca un móvil largo */
+        /* En PC limitamos el ancho para que parezca un mÃ³vil largo */
         width: auto;
-        aspect-ratio: 9 / 19.5; /* Ratio promedio de móviles modernos */
+        aspect-ratio: 9 / 19.5; /* Ratio promedio de mÃ³viles modernos */
         height: 95vh; /* Un poco de margen arriba/abajo en PC */
         box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 10px 50px rgba(0,0,0,0.5);
         border-radius: 10px; /* Esquinas redondeadas solo en PC */
@@ -87,13 +87,13 @@ if ('serviceWorker' in navigator) {
     });
   }
 
-// Al cargar el script, memorizamos el color de cada botón para siempre
+// Al cargar el script, memorizamos el color de cada botÃ³n para siempre
 document.querySelectorAll('.btn-rect').forEach(btn => {
     // Guardamos el color inicial en un atributo personalizado 'data-base-color'
     btn.dataset.baseColor = window.getComputedStyle(btn).fill;
 });
 
-let stack = []; // Empezamos vacío como pediste
+let stack = []; // Empezamos vacÃ­o como pediste
 let history = []; 
 let editando = false;
 
@@ -105,7 +105,7 @@ function guardarHistorial() {
 function formatearNumero(num, esLineaEdicion) {
     if (num === undefined || num === "") return "";
     
-    // Si estamos editando y es la línea principal, mostramos el cursor
+    // Si estamos editando y es la lÃ­nea principal, mostramos el cursor
     if (esLineaEdicion && editando) {
         return "# " + num.toString();
     }
@@ -114,7 +114,7 @@ function formatearNumero(num, esLineaEdicion) {
     if (isNaN(n)) return num;
 
     let str = n.toString();
-    // Si el número es muy largo, lo recortamos para que quepa
+    // Si el nÃºmero es muy largo, lo recortamos para que quepa
     if (str.length > 12) {
         str = n.toPrecision(10);
         str = parseFloat(str).toString(); 
@@ -138,7 +138,7 @@ function actualizar() {
     const pressedColor = '#e0e0e0';
     const effectDuration = 150;
 
-    // Transición suave
+    // TransiciÃ³n suave
     buttons.forEach(btn => btn.style.transition = 'fill 0.1s ease');
 
 function momentaryColorChange(el) {
@@ -147,9 +147,9 @@ function momentaryColorChange(el) {
         clearTimeout(parseInt(el.dataset.timeoutId));
     }
 
-    // 2. Cambio instantáneo al color de presión (sin transición)
+    // 2. Cambio instantÃ¡neo al color de presiÃ³n (sin transiciÃ³n)
     el.style.transition = 'none';
-    el.style.fill = '#e0e0e0'; // El gris claro de presión
+    el.style.fill = '#e0e0e0'; // El gris claro de presiÃ³n
 
     // 3. Programamos el regreso al color que memorizamos al inicio
     const id = setTimeout(() => {
@@ -164,12 +164,12 @@ function momentaryColorChange(el) {
 
 
     buttons.forEach(button => {
-        // Usamos 'mousedown' para PC y 'touchstart' para móviles para respuesta inmediata
+        // Usamos 'mousedown' para PC y 'touchstart' para mÃ³viles para respuesta inmediata
         const handleEvent = (event) => {
-            // Evitamos que se dispare dos veces (algunos móviles lanzan ambos)
+            // Evitamos que se dispare dos veces (algunos mÃ³viles lanzan ambos)
             event.preventDefault();
             
-            // RESPUESTA HÁPTICA
+            // RESPUESTA HÃPTICA
             if (navigator.vibrate) {
                 navigator.vibrate(15); // Vibra 15 milisegundos
             }
@@ -195,10 +195,10 @@ function ejecutarAccion(valor) {
         const cte = (valor === 'pi') ? Math.PI : Math.E;
         
         if (editando) {
-            // Convertimos lo que se estaba editando a número real (limpia el "." si estaba solo)
+            // Convertimos lo que se estaba editando a nÃºmero real (limpia el "." si estaba solo)
             let numeroFijado = parseFloat(stack[0]);
             
-            // Si el número no es válido (ej. solo escribiste "."), lo descartamos
+            // Si el nÃºmero no es vÃ¡lido (ej. solo escribiste "."), lo descartamos
             if (isNaN(numeroFijado)) {
                 stack[0] = cte;
             } else {
@@ -216,7 +216,7 @@ function ejecutarAccion(valor) {
 
     //--------------------------------------------------------------------------------
 
-    // --- 2. NÚMEROS Y PUNTO ---
+    // --- 2. NÃšMEROS Y PUNTO ---
     if (valor.startsWith('n') || valor === '.') {
         const digito = valor === '.' ? '.' : valor.replace('n', '');
         if (!editando) {
@@ -256,7 +256,7 @@ function ejecutarAccion(valor) {
                 editando = false;
             }
             break;
-                case 'rdn': // Roll Down: El primero pasa a ser el último
+                case 'rdn': // Roll Down: El primero pasa a ser el Ãºltimo
             if (stack.length > 1) {
                 if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
                 const primero = stack.shift();
@@ -264,7 +264,7 @@ function ejecutarAccion(valor) {
             }
             break;
 
-        case 'rup': // Roll Up: El último pasa a ser el primero
+        case 'rup': // Roll Up: El Ãºltimo pasa a ser el primero
             if (stack.length > 1) {
                 if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
                 const ultimo = stack.pop();
@@ -283,7 +283,7 @@ function ejecutarAccion(valor) {
             break;
         case 'edt': 
             if (stack.length > 0) {
-                // Convertimos el valor actual en texto para poder añadirle dígitos
+                // Convertimos el valor actual en texto para poder aÃ±adirle dÃ­gitos
                 stack[0] = stack[0].toString();
                 editando = true; 
             }
@@ -299,7 +299,7 @@ function ejecutarAccion(valor) {
         case 'pow':  op((y, x) => Math.pow(y, x)); break;
         case 'root': op((y, x) => Math.pow(y, 1 / x)); break;
 
-        // Operaciones Unarias (de un solo número)
+        // Operaciones Unarias (de un solo nÃºmero)
         case 'ln':  if(stack.length > 0) { f_unaria(Math.log); } break;
         case 'log': if(stack.length > 0) { f_unaria(Math.log10); } break;
         case 'fac': if(stack.length > 0) { f_unaria(factorial); } break;
@@ -308,17 +308,27 @@ function ejecutarAccion(valor) {
     actualizar();
 }
 
-// Función para operaciones de dos números (X e Y)
+// FunciÃ³n para operaciones de dos nÃºmeros (X e Y)
 function op(comando) {
     if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
     if (stack.length >= 2) {
+
+        const x = stack[0]; // El valor de abajo (divisor en /)
+        const y = stack[1]; // El valor de arriba (dividendo en /)
+
+        // VALIDACIÃ“N: Si es divisiÃ³n y el divisor es 0, ignoramos
+        if (valor === 'div' && x === 0) {
+            console.warn("DivisiÃ³n por cero ignorada");
+            return; // Salimos de la funciÃ³n sin tocar el stack
+        }
+        
         const x = stack.shift();
         const y = stack.shift();
         stack.unshift(comando(y, x));
     }
 }
 
-// Función para operaciones de un solo número (X)
+// FunciÃ³n para operaciones de un solo nÃºmero (X)
 function f_unaria(func) {
     if (editando) { stack[0] = parseFloat(stack[0]); editando = false; }
     stack[0] = func(parseFloat(stack[0]));
@@ -332,10 +342,10 @@ function factorial(n) {
 }
 
 
-// Mapeo de teclas físicas a los valores de 'data-valor'
+// Mapeo de teclas fÃ­sicas a los valores de 'data-valor'
 const mapTeclado = {
     'Enter': 'enter',
-    ' ': 'enter',        // Espacio también suele usarse como Enter en RPN
+    ' ': 'enter',        // Espacio tambiÃ©n suele usarse como Enter en RPN
     'Backspace': 'drp',
     'Delete': 'clr',
     'Escape': 'clr',
@@ -344,27 +354,27 @@ const mapTeclado = {
     '*': 'mult',
     '/': 'div',
     '.': '.',
-    ',': '.'           // Soporte para teclado numérico con coma
+    ',': '.'           // Soporte para teclado numÃ©rico con coma
 };
 
 window.addEventListener('keydown', (event) => {
     let accion = "";
 
-    // 1. Si es un número (0-9), lo mapeamos a 'n0', 'n1', etc.
+    // 1. Si es un nÃºmero (0-9), lo mapeamos a 'n0', 'n1', etc.
     if (event.key >= '0' && event.key <= '9') {
         accion = 'n' + event.key;
     } 
-    // 2. Si está en nuestro mapa de símbolos
+    // 2. Si estÃ¡ en nuestro mapa de sÃ­mbolos
     else if (mapTeclado[event.key]) {
         accion = mapTeclado[event.key];
     }
 
-    // 3. Si encontramos una acción válida, la ejecutamos
+    // 3. Si encontramos una acciÃ³n vÃ¡lida, la ejecutamos
     if (accion) {
-        event.preventDefault(); // Evita que la página haga scroll o cosas raras
+        event.preventDefault(); // Evita que la pÃ¡gina haga scroll o cosas raras
         ejecutarAccion(accion);
         
-        // OPCIONAL: Buscar el botón físico para disparar el efecto visual
+        // OPCIONAL: Buscar el botÃ³n fÃ­sico para disparar el efecto visual
         const btn = document.querySelector(`[data-valor="${accion}"]`);
         if (btn) momentaryColorChange(btn);
     }
